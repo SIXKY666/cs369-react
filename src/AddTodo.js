@@ -9,6 +9,7 @@ function AddTodo(props) {
       content: input,
       done: false
     }
+    document.getElementById('new-todo').value = "";
     add(data);
   };
   return (

@@ -1,19 +1,10 @@
 export default function List(props) {
+    //variable
     const taskList = props.taskList;
     const filter = props.filter;
     const checkBox = props.onCheckBox;
     const clickDelete = props.onDelete;
-
-
-    const onCheckBoxChange = (id, e) => {
-        e.preventDefault();
-        console.log("showid: ", id, e.target.value)
-        checkBox(id);
-    }
-    const onDelete = (id) => {
-        clickDelete(id);
-
-    }
+    const taskCount = taskList.filter(task => !task.done).length;
     const taskItems = taskList
         .filter(task => {
             if (filter === "done") {
@@ -40,9 +31,22 @@ export default function List(props) {
                 </li>
             )
         })
+
+    //event
+    const onCheckBoxChange = (id, e) => {
+        e.preventDefault();
+        console.log("showid: ", id, e.target.value)
+        checkBox(id);
+    }
+    const onDelete = (id) => {
+        clickDelete(id);
+
+    }
+
+    //return body
     return (
         <div className="list">
-            <h2 id="list-heading">Task remaining</h2>
+            <h2 id="list-heading">Task remaining {taskCount}</h2>
             <ul className="list-group">
                 {taskItems}
             </ul>
