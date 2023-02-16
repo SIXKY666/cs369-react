@@ -6,14 +6,6 @@ function AppTodo() {
       <button type="submit" className="btn">
         Add
       </button>
-      <span>
-      <label htmlFor="filter">Filter</label>
-      <select name="filter">
-        <option value="all">...</option>
-        <option value="done">Done</option>
-        <option value="active">Not Done Yet</option>
-      </select>
-      </span>
     </div>
   )
 }
