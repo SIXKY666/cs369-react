@@ -2,11 +2,16 @@ export default function List(props) {
     const taskList = props.taskList;
     const filter = props.filter;
     const checkBox = props.onCheckBox;
+    const clickDelete = props.onDelete;
 
     const onCheckBoxChange = (id,e) =>{
         e.preventDefault();
         console.log("showid: ",id,e.target.value)
         checkBox(id);
+    }
+    const onDelete = (id)=>{
+        clickDelete(id);
+
     }
     const taskItems = taskList
     .filter(task=>{
@@ -23,7 +28,7 @@ export default function List(props) {
                     <label htmlFor={task.id}>{task.content}</label>
                 </div>
                 <div className="btn-group">
-                    <button type="button" className="btn btn__danger">
+                    <button type="button" className="btn btn__danger" onClick={()=>onDelete(task.id)}>
                         Delete
                     </button>
                 </div>

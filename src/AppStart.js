@@ -16,6 +16,7 @@ class App extends React.Component {
     this.state = { tasks: initTasks ,filter: "all"}
     this.onFilter = this.onFilter.bind(this)
     this.onCheckBox =  this.onCheckBox.bind(this)
+    this.onDelete = this.onDelete.bind(this)
   }
 
   onFilter = function(e){
@@ -39,6 +40,10 @@ class App extends React.Component {
     );
     this.setState({tasks:updateTasks})
   }
+  onDelete = function(id){
+    let newTasks = this.state.tasks.filter(task=> task.id !== id);
+    this.setState({tasks:newTasks})
+  }
   render() {
     return (
       <div className="container">
@@ -59,6 +64,7 @@ class App extends React.Component {
           taskList={this.state.tasks} 
           filter={this.state.filter}
           onCheckBox={this.onCheckBox}
+          onDelete={this.onDelete}
         />
         {/* Todos end here */}
       </div>
