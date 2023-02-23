@@ -13,3 +13,6 @@ cd inclass-resource
 git fetch --all
 git pull origin main
 ```
+
+# How to download repository without using Git
+![How to download without git](public/how-to-download-without-git.png)
