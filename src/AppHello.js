@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "./App.css";
 
-function Hello() {
+function Hello({inintmsg = "Hi Hello"}) {
 
-    const [msg, setMsg] = useState('Hi Hello')
+    const [msg, setMsg] = useState(inintmsg)
 
     const onClick = () => {
         if (msg === "Hi Hello") {

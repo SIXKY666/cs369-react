@@ -7,7 +7,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <React.StrictMode>
-    <Hello />
+    <App initialCount={1}/>
   </React.StrictMode>
 );
 
