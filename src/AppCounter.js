@@ -4,7 +4,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import "./App.css";
 
 export default function Counter({ initialCount }) {
-  const [count, setCount] = useState(initialCount)
   const notify = () => toast.error('พอแล้วจ้า!', {
     position: "top-center",
     autoClose: 2000,
@@ -15,6 +14,8 @@ export default function Counter({ initialCount }) {
     progress: undefined,
     theme: "light",
   });
+
+  const [count, setCount] = useState(initialCount)
 
   const countDown = () => {
     if (count > 0) {

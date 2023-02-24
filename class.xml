@@ -1,0 +1,9 @@
+<complexType name="subjectType">
+    <sequence>
+        <element name="subjectID">
+            <simpleType>
+                <restriction base="string">
+                    <pattern value=""
+            </simpleType>
+        </element>
+</complexType>
