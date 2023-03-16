@@ -67,6 +67,15 @@ app.get('/', (req, res) => {
 app.get('/products', (req,res ) => {
     res.json(Products);
 })
+app.get('/products/:id',(req,res)=>{
+    let id = req.params.id
+    let product = Products.find((product)=> product.id === id)
+    if(product) res.json(product);
+    else
+        res.status(404).json({
+            error: "not found id"
+        })
+})
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)

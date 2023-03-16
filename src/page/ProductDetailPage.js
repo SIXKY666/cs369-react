@@ -40,6 +40,11 @@ const ProductDetailPage = () => {
 export default ProductDetailPage;
 
 export async function loader({ params }) {
-  const res = await getProduct(params.id);
-  return res;
+  const {id} = params;
+  const res = await fetch("/products/"+id);
+  let product = await res.json()
+  if(!res.ok){
+    throw Error(product.error)
+  }
+  return product;
 }
