@@ -11,10 +11,10 @@ const MainLayout = () => {
           <NavLink to="/about">About us</NavLink>
         </ul>
       </nav>
-      <div className="container">
+      <div className="content">
         <Outlet /> {/* your content will be shown in the Outlet */}
       </div>
-      <footer>---------This is a footer--------</footer>
+      <footer></footer>
     </div>
   );
 };

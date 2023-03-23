@@ -3,9 +3,10 @@ import {
   Form,
   useLoaderData,
   useSearchParams,
-  useSubmit, redirect
+  useSubmit,
+  redirect,
 } from "react-router-dom";
-import { getProducts } from "../productsData";
+import "../App.css";
 
 const ProductsPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -28,16 +29,21 @@ const ProductsPage = () => {
   const products = useLoaderData();
   const list = products.map((e) => (
     <Link key={e.id} to={e.id}>
-      <li title={e.category}>{e.name}</li>
-    </Link>
+    <li key={e.id} className="w-96 text-md h-10 rounded-sm outline-2 outline-red-700">{e.name}
+    </li>
+    </Link>   
   ));
 
   return (
-    <>
-      <Form id="search-form" role="search">
-        <fieldset>
-          <legend>Search</legend>
+    <div className="container flex flex-col justify-items-center items-center">
+      <Form
+        className="w-3/5 flex justify-center items-center"
+        id="search-form"
+        role="search"
+      >
+        <div className="container-sm flex border-b border-red-700 py-2">
           <input
+            className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
             id="q"
             placeholder="Search"
             type="search"
@@ -48,19 +54,25 @@ const ProductsPage = () => {
               submit(event.currentTarget.form);
             }}
           />
-          <input type="reset" onClick={resetSearch} />
-        </fieldset>
+          <button className="negative-btn" type="button" onClick={resetSearch}>
+            Reset
+          </button>
+        </div>
       </Form>
       <hr />
       <Form method="post">
-        <button type="submit">Add new product</button>
+      <button className="w-32 positive-btn my-2" type="submit" >
+            Add new product
+          </button>
       </Form>
-      {products.length ? (
-        <ul className="list-item">{list}</ul>
-      ) : (
-        "No product available"
-      )}
-    </>
+      <div className="container-sm flex flex-col items-start">
+        {products.length ? (
+          <ul className="list-item">{list}</ul>
+        ) : (
+          "No product available"
+        )}
+      </div>
+    </div>
   );
 };
 
@@ -71,15 +83,15 @@ export default ProductsPage;
 //   return res;
 // };
 export const productsLoader = async () => {
-  const res = await fetch('/products')
+  const res = await fetch("/products");
   if (!res.ok) {
-    throw Error('Could note fetch the products')
+    throw Error("Could note fetch the products");
   }
   return res;
 };
-export async function action() {
+export const action = async() => {
   const genId = () => Math.random().toString(36).substring(2, 9);
   const productId = genId();
   console.log(productId);
   return redirect(`/products/${productId}/new`);
-} 
+}

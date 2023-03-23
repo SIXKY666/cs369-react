@@ -1,7 +1,7 @@
 import "./Spinner.css"
 const Spinner = () => {
     return (
-        <div class="loading"></div>
+        <div className="loading"></div>
     )
 }
 export default Spinner;
