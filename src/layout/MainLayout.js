@@ -1,12 +1,15 @@
 import { NavLink, Outlet } from "react-router-dom";
+import "../App.css"
 
 const MainLayout = () => {
   return (
     <div className="container">
       <nav>
-        <NavLink to="/">Home</NavLink>&nbsp;
-        <NavLink to="/products">Product</NavLink>&nbsp;
-        <NavLink to="/about">About us</NavLink>&nbsp;
+        <ul className="space-x-6">
+          <NavLink to="/">Home</NavLink>
+          <NavLink to="/products">Product</NavLink>
+          <NavLink to="/about">About us</NavLink>
+        </ul>
       </nav>
       <div className="container">
         <Outlet /> {/* your content will be shown in the Outlet */}

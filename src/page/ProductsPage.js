@@ -3,7 +3,7 @@ import {
   Form,
   useLoaderData,
   useSearchParams,
-  useSubmit,
+  useSubmit, redirect
 } from "react-router-dom";
 import { getProducts } from "../productsData";
 
@@ -52,7 +52,9 @@ const ProductsPage = () => {
         </fieldset>
       </Form>
       <hr />
-
+      <Form method="post">
+        <button type="submit">Add new product</button>
+      </Form>
       {products.length ? (
         <ul className="list-item">{list}</ul>
       ) : (
@@ -71,7 +73,13 @@ export default ProductsPage;
 export const productsLoader = async () => {
   const res = await fetch('/products')
   if (!res.ok) {
-      throw Error('Could note fetch the products')
+    throw Error('Could note fetch the products')
   }
   return res;
 };
+export async function action() {
+  const genId = () => Math.random().toString(36).substring(2, 9);
+  const productId = genId();
+  console.log(productId);
+  return redirect(`/products/${productId}/new`);
+} 
