@@ -16,7 +16,8 @@ body {
     sans-serif;
   width: 100%;
 }
-footer{
+
+footer {
   position: fixed;
   bottom: 0;
   left: 0;
@@ -25,9 +26,11 @@ footer{
   height: 60px;
   background-color: darkslategray;
 }
-.container{
+
+.container {
   max-width: 100%;
 }
+
 .content {
   @apply flex flex-col justify-center items-center justify-items-center;
 }
@@ -39,11 +42,14 @@ nav {
 nav a {
   @apply text-lg font-bold
 }
-.positive-btn{
-  @apply flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded
+
+.positive-btn {
+  @apply flex-shrink-0 bg-red-700 border-red-700 text-sm border-4 text-white py-1 px-2 rounded hover:bg-red-900 hover:border-red-900;;
+
 }
-.negative-btn{
-  @apply flex-shrink-0 border-transparent border-4 text-teal-500 hover:text-teal-800 text-sm py-1 px-2 rounded;
+
+.negative-btn {
+  @apply flex-shrink-0 border-transparent border-4 text-red-700 text-sm py-1 px-2 rounded hover:text-red-900;
 }
 
 ul {

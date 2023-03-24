@@ -1,16 +1,15 @@
 import { useLoaderData } from "react-router-dom";
 import BreadCrumbs from "../component/BreadCrumbs";
-import { getProduct } from "../productsData";
-
+import "../App.css"
 const ProductDetailPage = () => {
   const product = useLoaderData();
   return (
     <>
-      <BreadCrumbs />
-      <div className="item">
+      <BreadCrumbs/>
+      <div className="container-sm">
         {product ? (
           <>
-            <h2>{product.name}</h2>
+            <h2 className="text-lg font-bold">{product.name}</h2>
             <div>
               <span>Id:</span> {product.id}
             </div>
@@ -19,11 +18,11 @@ const ProductDetailPage = () => {
             </div>
             <div>
               <span>Price:</span> {product.price}
-            </div>
+            </div >
             {product.stocked ? (
               <div className="info">Available</div>
             ) : (
-              <div className="danger">Out of stock</div>
+                <div className="danger">Out of stock</div>
             )}
             <div>
               <span>Detail:</span>

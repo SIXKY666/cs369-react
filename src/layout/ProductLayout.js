@@ -6,7 +6,7 @@ const ProductLayout = () => {
   return (
     <div className="container flex flex-col justify-center items-center">
       <h1 className="text-lg font-bold underline-offset-1">Products</h1>
-      <div className="container flex flex-row justify-center">
+      <div className="container flex flex-col justify-center">
         {navigation.state === "loading" ? <Spinner /> : ""}
         <Outlet />
       </div>

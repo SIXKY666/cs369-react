@@ -17,6 +17,6 @@ const BreadCrumbs = () => {
         );
       });
   
-    return <div className="breadcrumbs">{crumbs}</div>;
+    return <div className="breadcrumbs flex justify-items-start">{crumbs}</div>;
   };
 export default BreadCrumbs;  
