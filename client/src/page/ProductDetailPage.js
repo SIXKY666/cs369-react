@@ -5,6 +5,7 @@ import React from 'react'
 
 const ProductDetailPage = () => {
 	const product = useLoaderData()
+	//console.log(JSON.stringify(product));
 	return (
 		<>
 			<BreadCrumbs />
